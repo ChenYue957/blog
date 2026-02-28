@@ -21,19 +21,10 @@ import { remarkExcerpt } from "./src/plugins/remark-excerpt.js";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
 
 // https://astro.build/config
-
-// 检测构建平台
-const isCF = process.env.CF_PAGES === '1';
-const isGitHub = process.env.GITHUB_ACTIONS === 'true';
-
 export default defineConfig({
-  site: isCF 
-    ? "https://d2d160d4.blog-9c8.pages.dev" 
-    : (isGitHub ? "https://chenyue957.github.io" : "https://blog.chenyue.top"),
-  
-  base: isGitHub ? "/blog" : "/",
-  
-  trailingSlash: "always",
+	site: "https://blog.chenyue.top",
+	base: "/blog",
+	trailingSlash: "always",
 	integrations: [
 		tailwind({
 			nesting: true,
