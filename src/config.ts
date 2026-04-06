@@ -10,8 +10,7 @@ import { LinkPreset } from "./types/config";
 
 export const siteConfig: SiteConfig = {
 	title: "尘钥ChenYue Blog",
-	description:
-		"个人博客，站长为尘钥ChenYue",
+	description: "个人博客，站长为尘钥ChenYue",
 
 	keywords: [],
 	lang: "zh_CN", // 'en', 'zh_CN', 'zh_TW', 'ja', 'ko', 'es', 'th'
@@ -34,7 +33,7 @@ export const siteConfig: SiteConfig = {
 	},
 	background: {
 		enable: true, // Enable background image
-		src: "https://eo-pic.blog.chenyue.art:958/h", // Background image URL (supports HTTPS)
+		src: "https://eo-pic.blog.chenyue.top/h", // Background image URL (supports HTTPS)
 		position: "center", // Background position: 'top', 'center', 'bottom'
 		size: "cover", // Background size: 'cover', 'contain', 'auto'
 		repeat: "no-repeat", // Background repeat: 'no-repeat', 'repeat', 'repeat-x', 'repeat-y'
@@ -53,6 +52,7 @@ export const siteConfig: SiteConfig = {
 			//   sizes: '32x32',              // (Optional) Size of the favicon, set only if you have favicons of different sizes
 		},
 	],
+	subtitle: ""
 };
 
 export const navBarConfig: NavBarConfig = {
@@ -99,13 +99,13 @@ export const licenseConfig: LicenseConfig = {
 
 export const imageFallbackConfig: ImageFallbackConfig = {
 	enable: true,
-	originalDomain: "eo-r2.blog.chenyue.art:958",
+	originalDomain: "https://blog.chenyue.top",
 	fallbackDomain: "pub-d433ca7edaa74994b3d7c40a7fd7d9ac.r2.dev",
 };
 
 export const umamiConfig: UmamiConfig = {
 	enable: true,
-	baseUrl: "https://umami.blog.chenyue.art:958",
+	baseUrl: "https://blog.chenyue.top",
 	shareId: "ZyDjOrmjaBTlmGtd",
 	timezone: "Asia/Shanghai",
 };

@@ -115,7 +115,7 @@ const bannerOffset =
 		<meta name="generator" content={Astro.generator} />
 		
 		{/* <!-- Content Security Policy -->
-		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app https://hpic.072103.xyz https://umami.blog.chenyue.art:958 https://hm.baidu.com https://www.googletagmanager.com https://www.google-analytics.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://static.cloudflareinsights.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline' https://giscus.app https://fonts.googleapis.com https://api.iconify.design; font-src 'self' https://fonts.gstatic.com https://api.iconify.design; img-src 'self' data: https: http:; connect-src 'self' https://umami.blog.chenyue.art:958 https://hm.baidu.com https://www.google-analytics.com https://analytics.google.com https://api.iconify.design https://static.cloudflareinsights.com https://pic.blog.chenyue.art:958 https://q2.qlogo.cn https://ep1.adtrafficquality.google https://googleads.g.doubleclick.net; frame-src 'self' https://giscus.app *.bilibili.com https://www.google.com https://googleads.g.doubleclick.net https://support.nodeget.com https://*.adtrafficquality.google; object-src 'none'; base-uri 'self'; form-action 'self';"> */}
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app https://hpic.072103.xyz https://umami.blog.chenyue.top https://hm.baidu.com https://www.googletagmanager.com https://www.google-analytics.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://static.cloudflareinsights.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline' https://giscus.app https://fonts.googleapis.com https://api.iconify.design; font-src 'self' https://fonts.gstatic.com https://api.iconify.design; img-src 'self' data: https: http:; connect-src 'self' https://umami.blog.chenyue.art:958 https://hm.baidu.com https://www.google-analytics.com https://analytics.google.com https://api.iconify.design https://static.cloudflareinsights.com https://pic.blog.chenyue.art:958 https://q2.qlogo.cn https://ep1.adtrafficquality.google https://googleads.g.doubleclick.net; frame-src 'self' https://giscus.app *.bilibili.com https://www.google.com https://googleads.g.doubleclick.net https://support.nodeget.com https://*.adtrafficquality.google; object-src 'none'; base-uri 'self'; form-action 'self';"> */}
 		{favicons.map(favicon => (
 			<link rel="icon"
 				  href={favicon.src.startsWith('/') ? url(favicon.src) : favicon.src}
@@ -285,7 +285,7 @@ const bannerOffset =
 		<div id="page-height-extend" class="hidden h-[300vh]"></div>
 
 		<!-- 域名检测脚本（仅保留官方 .art 域名） -->
-		<script is:inline define:vars={{officialSites: ["https://blog.chenyue.art:958"]}}>
+		<script is:inline define:vars={{officialSites: ["https://blog.chenyue.top", "https://blog.chenyue.art:958"]}}>
 		(function() {
 			try {
 				const officialOrigins = officialSites.map(s => {
