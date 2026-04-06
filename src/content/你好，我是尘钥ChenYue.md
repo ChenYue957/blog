@@ -1,8 +1,14 @@
-```yaml
+---
 title: 你好，我是尘钥ChenYue
-date: 2026-04-06
-tags: [关于我, 自我介绍]
-```
+published: 2026-04-07
+updated: 2026-04-07
+draft: false
+description: 一名在读高三生的自我介绍和技术折腾记录
+tags: [关于我, 自我介绍, 高三]
+category: 随笔
+lang: zh-cn
+pinned: true
+---
 
 # 你好，我是尘钥ChenYue
 
