@@ -36,6 +36,10 @@ jobs:
 
       - name: Build
         run: pnpm build
+        env:
+          # GitHub Pages 需要 /blog 路径
+          ASTRO_SITE: https://chenyue957.github.io
+          ASTRO_BASE: /blog
 
       - name: Upload to GitHub Pages
         uses: actions/upload-pages-artifact@v3
