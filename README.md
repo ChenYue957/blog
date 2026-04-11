@@ -22,7 +22,6 @@
 
 ### 🌐 我的站点矩阵
 
-
 | 站点        | 地址                                                | 说明        |
 | --------- | ------------------------------------------------- | --------- |
 | 🏠 主页     | [chenyue.top](https://chenyue.top/)               | 个人主页      |
@@ -34,8 +33,12 @@
 
 ### 📮 联系我
 
+- 主页：[https://chenyue.top](https://chenyue.top/)
+
+- GitHub：[ChenYue957 (尘钥ChenYue) · GitHub](https://github.com/ChenYue957)
+
+- 邮箱：[xjr957@gmail.com](mailto:xjr957@gmail.com)
+
 - B站私信：[尘钥ChenYue](https://space.bilibili.com/512180655)
 
-- GitHub Issues：[ChenYue957](https://github.com/ChenYue957)
-
--  邮箱：jrxiao957@gmail.com 
+有事留言，看到会回。

@@ -82,7 +82,7 @@ const bannerOffset =
 ---
 
 <!DOCTYPE html>
-<html lang={siteLang} class="bg-[var(--page-bg)] transition text-[14px] md:text-[16px]"
+<html lang={siteLang} class="bg-[var(--page-bg)] transition text-[14px] md:text-[16px] "
 	  data-overlayscrollbars-initialize
 >
 	<head>
@@ -129,6 +129,7 @@ const bannerOffset =
 			// Force dark mode if configured
 			if (forceDarkMode) {
 				document.documentElement.classList.add('dark');
+				document.documentElement.setAttribute('data-theme', 'dark');
 				localStorage.setItem('theme', DARK_MODE);
 			} else {
 				// Load the theme from local storage
@@ -563,6 +564,7 @@ const setup = () => {
 	window.swup.hooks.on('content:replace', initCustomScrollbar)
 	window.swup.hooks.on('visit:start', (visit: {to: {url: string}}) => {
 		// change banner height immediately when a link is clicked
+		visit.scroll = { top: 0, behavior: 'auto' };
 		const bodyElement = document.querySelector('body')
 		if (pathsEqual(visit.to.url, url('/'))) {
 			bodyElement!.classList.add('lg:is-home');
