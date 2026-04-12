@@ -588,15 +588,13 @@ const setup = () => {
 			toc.classList.add('toc-not-ready')
 		}
 	});
-	window.swup.hooks.on('page:view', () => {
-		// hide the temp high element when the transition is done
-		const heightExtend = document.getElementById('page-height-extend')
-		if (heightExtend) {
-			heightExtend.classList.add('hidden')
-		}
-	});
 	window.swup.hooks.on('visit:end', (_visit: {to: {url: string}}) => {
 		setTimeout(() => {
+			const heightExtend = document.getElementById('page-height-extend')
+			if (heightExtend) {
+				heightExtend.classList.add('hidden')
+			}
+
 			const toc = document.getElementById('toc-wrapper');
 			if (toc) {
 				toc.classList.remove('toc-not-ready')
