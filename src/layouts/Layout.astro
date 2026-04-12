@@ -125,7 +125,7 @@ const bannerOffset =
 		))}
 
 		<!-- Set the theme before the page is rendered to avoid a flash -->
-		<script is:inline define:vars={{DEFAULT_THEME, LIGHT_MODE, DARK_MODE, AUTO_MODE, BANNER_HEIGHT_EXTEND, PAGE_WIDTH, configHue, forceDarkMode: siteConfig.themeColor.forceDarkMode}}>
+		<script is:inline define:vars={{DEFAULT_THEME, LIGHT_MODE, DARK_MODE, AUTO_MODE, BANNER_HEIGHT_EXTEND, PAGE_WIDTH, configHue, forceDarkMode: siteConfig.themeColor.forceDarkMode, backgroundSrc: siteConfig.background.src || '', backgroundEnable: siteConfig.background.enable ? 1 : 0}}>
 			// Force dark mode if configured
 			if (forceDarkMode) {
 				document.documentElement.classList.add('dark');
@@ -159,27 +159,30 @@ const bannerOffset =
 			offset = offset - offset % 4;
 			document.documentElement.style.setProperty('--banner-height-extend', `${offset}px`);
 
-			// Background image loading detection
-			const bgUrl = getComputedStyle(document.documentElement).getPropertyValue('--bg-url').trim();
-			const bgEnable = getComputedStyle(document.documentElement).getPropertyValue('--bg-enable').trim();
-			
-			if (bgUrl && bgUrl !== 'none' && bgEnable === '1') {
+			function loadBackgroundImage() {
+				if (!backgroundSrc || backgroundEnable !== 1) {
+					return;
+				}
+
 				const img = new Image();
-				const urlMatch = bgUrl.match(/url\(["']?([^"')]+)["']?\)/);
-				if (urlMatch) {
-					img.onload = function() {
-						// 背景图片完全加载后，显示背景并启用卡片透明效果
-						document.body.classList.add('bg-loaded');
-						document.documentElement.style.setProperty('--card-bg', 'var(--card-bg-transparent)');
-						document.documentElement.style.setProperty('--float-panel-bg', 'var(--float-panel-bg-transparent)');
-					};
-					img.onerror = function() {
-						// Keep cards opaque if background image fails to load
-						console.warn('Background image failed to load, keeping cards opaque');
-					};
-					img.src = urlMatch[1];
+				img.onload = function() {
+					const body = document.body;
+					if (body) {
+						body.classList.add('bg-loaded');
+					}
+					document.documentElement.style.setProperty('--card-bg', 'var(--card-bg-transparent)');
+					document.documentElement.style.setProperty('--float-panel-bg', 'var(--float-panel-bg-transparent)');
+				};
+				img.onerror = function() {
+					console.warn('Background image failed to load, keeping cards opaque');
+				};
+				img.src = backgroundSrc;
+				if (img.complete) {
+					img.onload?.();
 				}
 			}
+
+			document.addEventListener('DOMContentLoaded', loadBackgroundImage);
 		</script>
 		<style define:vars={{
 			configHue,
@@ -564,7 +567,8 @@ const setup = () => {
 	window.swup.hooks.on('content:replace', initCustomScrollbar)
 	window.swup.hooks.on('visit:start', (visit: {to: {url: string}}) => {
 		// change banner height immediately when a link is clicked
-		visit.scroll = { top: 0, behavior: 'auto' };
+		const visitAny = visit as any;
+		visitAny.scroll = { top: 0, behavior: 'auto' };
 		const bodyElement = document.querySelector('body')
 		if (pathsEqual(visit.to.url, url('/'))) {
 			bodyElement!.classList.add('lg:is-home');
