@@ -300,9 +300,6 @@ const bannerOffset =
 		<ConfigCarrier></ConfigCarrier>
 		<slot />
 
-		<!-- increase the page height during page transition to prevent the scrolling animation from jumping -->
-		<div id="page-height-extend" class="hidden h-[300vh]"></div>
-
 		<!-- 域名检测脚本（官方域名：chenyue.art、chenyue.top、chenyue957.github.io） -->
 		<script is:inline define:vars={{officialSites: ["https://blog.chenyue.top", "https://blog.chenyue.art", "https://blog.chenyue.art:958", "https://chenyue957.github.io"]}}>
 		(function() {
@@ -583,16 +580,17 @@ const setup = () => {
 	window.swup.hooks.on('visit:start', (visit: {to: {url: string}}) => {
 		// change banner height immediately when a link is clicked
 		const bodyElement = document.querySelector('body')
-		if (pathsEqual(visit.to.url, url('/'))) {
+		const nextPath = (() => {
+			try {
+				return new URL(visit.to.url, window.location.href).pathname;
+			} catch {
+				return String(visit.to.url);
+			}
+		})();
+		if (pathsEqual(nextPath, url('/'))) {
 			bodyElement!.classList.add('lg:is-home');
 		} else {
 			bodyElement!.classList.remove('lg:is-home');
-		}
-
-		// increase the page height during page transition to prevent the scrolling animation from jumping
-		const heightExtend = document.getElementById('page-height-extend')
-		if (heightExtend) {
-			heightExtend.classList.remove('hidden')
 		}
 
 		// Hide the TOC while scrolling back to top
@@ -603,11 +601,6 @@ const setup = () => {
 	});
 	window.swup.hooks.on('visit:end', (_visit: {to: {url: string}}) => {
 		setTimeout(() => {
-			const heightExtend = document.getElementById('page-height-extend')
-			if (heightExtend) {
-				heightExtend.classList.add('hidden')
-			}
-
 			const toc = document.getElementById('toc-wrapper');
 			if (toc) {
 				toc.classList.remove('toc-not-ready')
