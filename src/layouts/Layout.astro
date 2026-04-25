@@ -297,8 +297,8 @@ const bannerOffset =
 		<!-- increase the page height during page transition to prevent the scrolling animation from jumping -->
 		<div id="page-height-extend" class="hidden h-[300vh]"></div>
 
-		<!-- 域名检测脚本（仅保留官方 .art 域名） -->
-		<script is:inline define:vars={{officialSites: ["https://blog.chenyue.top", "https://blog.chenyue.art:958"]}}>
+		<!-- 域名检测脚本（官方域名：chenyue.art、chenyue.top、chenyue957.github.io） -->
+		<script is:inline define:vars={{officialSites: ["https://blog.chenyue.top", "https://blog.chenyue.art", "https://blog.chenyue.art:958", "https://chenyue957.github.io"]}}>
 		(function() {
 			try {
 				const officialOrigins = officialSites.map(s => {
