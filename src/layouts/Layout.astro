@@ -582,8 +582,6 @@ const setup = () => {
 	window.swup.hooks.on('content:replace', initCustomScrollbar)
 	window.swup.hooks.on('visit:start', (visit: {to: {url: string}}) => {
 		// change banner height immediately when a link is clicked
-		const visitAny = visit as any;
-		visitAny.scroll = { top: 0, behavior: 'auto' };
 		const bodyElement = document.querySelector('body')
 		if (pathsEqual(visit.to.url, url('/'))) {
 			bodyElement!.classList.add('lg:is-home');
