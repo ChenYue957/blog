@@ -33,7 +33,7 @@ export const siteConfig: SiteConfig = {
 	},
 	background: {
 		enable: true, // Enable background image
-		src: "https://eo-pic.blog.chenyue.top/h", // Background image URL (supports HTTPS)
+		src: "/wallpaper.jpg", // Background image URL: use local public file
 		position: "center", // Background position: 'top', 'center', 'bottom'
 		size: "cover", // Background size: 'cover', 'contain', 'auto'
 		repeat: "no-repeat", // Background repeat: 'no-repeat', 'repeat', 'repeat-x', 'repeat-y'
@@ -104,8 +104,8 @@ export const imageFallbackConfig: ImageFallbackConfig = {
 };
 
 export const umamiConfig: UmamiConfig = {
-	enable: true,
-	baseUrl: "https://blog.chenyue.top",
+	enable: false,
+	baseUrl: "https://umami.blog.chenyue.art:958",
 	shareId: "ZyDjOrmjaBTlmGtd",
 	timezone: "Asia/Shanghai",
 };

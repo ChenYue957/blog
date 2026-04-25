@@ -3,7 +3,7 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
-import { profileConfig, siteConfig } from "@/config";
+import { profileConfig, siteConfig, umamiConfig } from "@/config";
 import ConfigCarrier from "@components/ConfigCarrier.astro";
 import {
 	AUTO_MODE,
@@ -46,6 +46,9 @@ if (!banner || typeof banner !== "string" || banner.trim() === "") {
 banner = siteConfig.banner.src;
 
 const enableBanner = siteConfig.banner.enable;
+const htmlClass = siteConfig.themeColor.forceDarkMode
+	? 'dark bg-[var(--page-bg)] transition text-[14px] md:text-[16px] '
+	: 'bg-[var(--page-bg)] transition text-[14px] md:text-[16px] ';
 
 let pageTitle: string;
 if (title) {
@@ -82,7 +85,7 @@ const bannerOffset =
 ---
 
 <!DOCTYPE html>
-<html lang={siteLang} class="bg-[var(--page-bg)] transition text-[14px] md:text-[16px] "
+<html lang={siteLang} class={htmlClass}
 	  data-overlayscrollbars-initialize
 >
 	<head>
@@ -245,18 +248,24 @@ const bannerOffset =
 		<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
 		<link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
 		<link rel="preconnect" href="https://static.cloudflareinsights.com" crossorigin>
-		<link rel="preconnect" href="https://umami.blog.chenyue.art:958" crossorigin>
-		<link rel="preconnect" href="https://ep1.adtrafficquality.google" crossorigin>
-		<link rel="preconnect" href="https://analytics.google.com" crossorigin>
-		<link rel="preconnect" href="https://api.iconify.design" crossorigin>
+		{umamiConfig.enable && (
+			<>
+				<link rel="preconnect" href={umamiConfig.baseUrl} crossorigin />
+				<link rel="preconnect" href="https://ep1.adtrafficquality.google" crossorigin />
+				<link rel="preconnect" href="https://analytics.google.com" crossorigin />
+				<link rel="preconnect" href="https://api.iconify.design" crossorigin />
+			</>
+		)}
 		<link rel="dns-prefetch" href="https://hm.baidu.com">
 		<link rel="dns-prefetch" href="https://www.googletagmanager.com">
 
 		<slot name="head"></slot>
 
-		<link rel="alternate" type="application/rss+xml" title={profileConfig.name} href={`${Astro.site}rss.xml`}/>
+		<link rel="alternate" type="application/rss+xml" title={profileConfig.name} href={`${Astro.site}rss.xml`} />
 		<!-- Umami分析（自建） -->
-		<script defer src="https://umami.blog.chenyue.art:958/script.js" data-website-id="4b4e430d-a12c-4a5c-8cf9-df48eb20fd6d"></script>
+		{umamiConfig.enable && (
+			<script defer src={`${umamiConfig.baseUrl}/script.js`} data-website-id="4b4e430d-a12c-4a5c-8cf9-df48eb20fd6d"></script>
+		)}
 		<!-- 百度统计 -->
 <script>
 (window as any)._hmt = (window as any)._hmt || [];
