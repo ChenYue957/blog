@@ -1,6 +1,7 @@
 ---
 import MainGridLayout from "@layouts/MainGridLayout.astro";
 import { Icon } from "astro-icon/components";
+import { url } from "@utils/url-utils";
 ---
 
 <MainGridLayout title="赞助支持">
@@ -34,7 +35,7 @@ import { Icon } from "astro-icon/components";
                     </div>
                 </div>
                 <div class="qr-code-placeholder">
-                    <img src="/donate/zfb.jpg" alt="支付宝二维码" class="w-84 h-84 mx-auto rounded-lg" />
+                    <img src={url("/donate/zfb.jpg")} alt="支付宝二维码" class="w-84 h-84 mx-auto rounded-lg" />
                 </div>
             </div>
 
@@ -50,7 +51,7 @@ import { Icon } from "astro-icon/components";
                     </div>
                 </div>
                 <div class="qr-code-placeholder">
-                    <img src="/donate/wxzf.jpg" alt="微信支付二维码" class="w-84 h-84 mx-auto rounded-lg" />
+                    <img src={url("/donate/wxzf.jpg")} alt="微信支付二维码" class="w-84 h-84 mx-auto rounded-lg" />
                 </div>
             </div>
        </div>
@@ -153,13 +154,3 @@ import { Icon } from "astro-icon/components";
     opacity: 0.8;
 }
 </style>
-
-<script>
-function copyToClipboard(text) {
-    navigator.clipboard.writeText(text).then(() => {
-        alert('已复制到剪贴板');
-    }, (err) => {
-        console.error('复制失败: ', err);
-    });
-}
-</script>

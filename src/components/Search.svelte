@@ -14,11 +14,18 @@ interface SearchResult {
 	urlPath?: string;
 }
 
+interface SearchPost {
+	title: string;
+	description: string;
+	content: string;
+	link: string;
+}
+
 let keywordDesktop = "";
 let keywordMobile = "";
 let result: SearchResult[] = [];
 let isSearching = false;
-let posts: any[] = [];
+let posts: SearchPost[] = [];
 
 const togglePanel = () => {
 	const panel = document.getElementById("search-panel");
@@ -60,24 +67,26 @@ const search = async (keyword: string, isDesktop: boolean): Promise<void> => {
 				const urlPath = `/posts/${post.link}`;
 				
 				// 支持内容搜索和URL后缀搜索
-				return searchText.includes(keywordLower) || 
-					   urlPath.toLowerCase().includes(keywordLower) ||
-					   post.link.toLowerCase().includes(keywordLower);
+				return (
+					searchText.includes(keywordLower) ||
+					urlPath.toLowerCase().includes(keywordLower) ||
+					post.link.toLowerCase().includes(keywordLower)
+				);
 			})
 			.map((post) => {
 				const contentLower = post.content.toLowerCase();
 				const keywordLower = keyword.toLowerCase();
 				const contentIndex = contentLower.indexOf(keywordLower);
 				
-				let excerpt = '';
+				let excerpt = "";
 				if (contentIndex !== -1) {
 					const start = Math.max(0, contentIndex - 50);
 					const end = Math.min(post.content.length, contentIndex + 100);
 					excerpt = post.content.substring(start, end);
-					if (start > 0) excerpt = '...' + excerpt;
-					if (end < post.content.length) excerpt = excerpt + '...';
+					if (start > 0) excerpt = `...${excerpt}`;
+					if (end < post.content.length) excerpt = `${excerpt}...`;
 				} else {
-					excerpt = post.description || post.content.substring(0, 150) + '...';
+					excerpt = post.description || `${post.content.substring(0, 150)}...`;
 				}
 
 				return {
@@ -103,7 +112,7 @@ const search = async (keyword: string, isDesktop: boolean): Promise<void> => {
 
 onMount(async () => {
 	try {
-		const response = await fetch("/rss.xml");
+		const response = await fetch(url("/rss.xml"));
 		const text = await response.text();
 		const parser = new DOMParser();
 		const xml = parser.parseFromString(text, "text/xml");
