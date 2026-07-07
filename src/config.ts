@@ -76,7 +76,7 @@ export const navBarConfig: NavBarConfig = {
 export const profileConfig: ProfileConfig = {
 	avatar: "/favicon/cyico.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 	name: "尘钥ChenYue",
-	bio: "🏫一名在读高三生🏫",
+	bio: "🏫一名准大一新生🏫",
 	links: [
 		{
 			name: "Bilibli",
