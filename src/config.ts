@@ -99,7 +99,7 @@ export const licenseConfig: LicenseConfig = {
 
 export const imageFallbackConfig: ImageFallbackConfig = {
 	enable: true,
-	originalDomain: "https://blog.chenyue.top",
+	originalDomain: "https://blog.chenyue.fun",
 	fallbackDomain: "pub-d433ca7edaa74994b3d7c40a7fd7d9ac.r2.dev",
 };
 

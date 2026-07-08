@@ -159,7 +159,7 @@ RK R87 + G502 + 自组，轴体和键帽换来换去，最后发现原厂高度�
 
 ## 联系方式
 
-- 主页：[https://chenyue.top](https://chenyue.top/)
+- 主页：[https://chenyue.fun](https://chenyue.fun/)
 - GitHub：[ChenYue957 (尘钥ChenYue) · GitHub](https://github.com/ChenYue957)
 - 邮箱：[xjr957@gmail.com](mailto:xjr957@gmail.com)
 - B站私信：[尘钥ChenYue](https://space.bilibili.com/512180655)

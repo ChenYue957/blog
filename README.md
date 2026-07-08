@@ -24,16 +24,16 @@
 
 | 站点        | 地址                                                | 说明        |
 | --------- | ------------------------------------------------- | --------- |
-| 🏠 主页     | [chenyue.top](https://chenyue.top/)               | 个人主页      |
-| 📝 博客     | [chenyue.top/blog](https://chenyue.top/)          | 技术&生活博客   |
-| ☁️ 云盘主    | [chenyue.top](https://chenyue.top/)               | 文件存储&静态资源 |
+| 🏠 主页     | [chenyue.fun](https://chenyue.fun/)               | 个人主页      |
+| 📝 博客     | [chenyue.fun/blog](https://chenyue.fun/)          | 技术&生活博客   |
+| ☁️ 云盘主    | [chenyue.art](https://chenyue.art:957/)               | 文件存储&静态资源 |
 | 🎮 MC服务器  | The Mortal World                                  | PVE 后台    |
 | 📺 B站     | [尘钥ChenYue](https://space.bilibili.com/512180655) | 视频分享      |
 | 💻 GitHub | [ChenYue957](https://github.com/ChenYue957)       | 开源项目      |
 
 ### 📮 联系我
 
-- 主页：[https://chenyue.top](https://chenyue.top/)
+- 主页：[https://chenyue.fun](https://chenyue.fun/)
 
 - GitHub：[ChenYue957 (尘钥ChenYue) · GitHub](https://github.com/ChenYue957)
 
