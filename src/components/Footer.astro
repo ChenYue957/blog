@@ -5,34 +5,36 @@ import { url } from "../utils/url-utils";
 const currentYear = new Date().getFullYear();
 ---
 
-  
-<!--<div class="border-t border-[var(&#45;&#45;primary)] mx-16 border-dashed py-8 max-w-[var(&#45;&#45;page-width)] flex flex-col items-center justify-center px-6">-->
 <div class="transition border-t border-black/10 dark:border-white/15 my-10 border-dashed mx-32"></div>
-<!--<div class="transition bg-[oklch(92%_0.01_var(&#45;&#45;hue))] dark:bg-black rounded-2xl py-8 mt-4 mb-8 flex flex-col items-center justify-center px-6">-->
+
 <div class="transition border-dashed border-[oklch(85%_0.01_var(--hue))] dark:border-white/15 rounded-2xl mb-12 flex flex-col items-center justify-center px-6">
-    <div class="transition text-50 text-sm text-center">
-        &copy; <span id="copyright-year">2024 - {currentYear}</span> {profileConfig.name}. 保留所有权利。 /
-        <a class="transition link text-[var(--primary)] font-medium" target="_blank" href={url('rss.xml')}>RSS</a> /
-        <a class="transition link text-[var(--primary)] font-medium" target="_blank" href={url('sitemap-index.xml')}>网站地图</a><br>
-                   
-        <div style="text-align: center; padding: 20px; font-size: 14px; color: #666; line-height: 2;">
-            尘钥ChenYue © 2024-2026
-            <span style="margin: 0 8px;">|</span>
-            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" style="color: #666; text-decoration: none;">
-            闽ICP备2026025889号
-            </a>
-            <span style="margin: 0 8px;">|</span>
-            <a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35058202001669" target="_blank" rel="noopener noreferrer" style="color: #666; text-decoration: none; display: inline-flex; align-items: center;">
-            <img src="https://www.beian.gov.cn/img/ghs.png" alt="公安备案" style="width: 16px; height: 16px; margin-right: 4px; vertical-align: middle;">
-            闽公网安备35058202001669号
+    <div class="text-sm text-center w-full">
+        <div class="mb-2">
+            &copy; <span id="copyright-year">2024 - {currentYear}</span> {profileConfig.name}。保留所有权利。
+        </div>
+
+        <div class="mb-2">
+            <a class="transition link text-[var(--primary)] font-medium mx-2" target="_blank" href={url('rss.xml')}>RSS</a>
+            <span class="text-gray-300">|</span>
+            <a class="transition link text-[var(--primary)] font-medium mx-2" target="_blank" href={url('sitemap-index.xml')}>网站地图</a>
+        </div>
+
+        <div class="mt-3 text-sm text-gray-600 dark:text-gray-300 leading-7">
+            <a class="inline-block mr-2 text-gray-600 dark:text-gray-300 no-underline" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">闽ICP备2026025889号</a>
+            <span class="mx-2 text-gray-300">|</span>
+            <a class="inline-flex items-center text-gray-600 dark:text-gray-300 no-underline" href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35058202001669" target="_blank" rel="noopener noreferrer">
+                <img src="https://www.beian.gov.cn/img/ghs.png" alt="公安备案" class="w-4 h-4 mr-1 align-middle">闽公网安备35058202001669号
             </a>
         </div>
-       
-        由
-        <a class="transition link text-[var(--primary)] font-medium" target="_blank" href="https://astro.build">Astro</a> 和
-        <a class="transition link text-[var(--primary)] font-medium" target="_blank" href="https://github.com/saicaca/fuwari">Fuwari</a> 强力驱动
-        <br>
-        本站已开源
-        <a class="transition link text-[var(--primary)] font-medium" target="_blank" href="https://github.com/saicaca/fuwari">源码</a>
-</div>
+
+        <div class="mt-3">
+            由
+            <a class="transition link text-[var(--primary)] font-medium mx-1" target="_blank" href="https://astro.build">Astro</a>
+            和
+            <a class="transition link text-[var(--primary)] font-medium mx-1" target="_blank" href="https://github.com/saicaca/fuwari">Fuwari</a>
+            强力驱动。本站已开源：
+            <a class="transition link text-[var(--primary)] font-medium mx-1" target="_blank" href="https://github.com/saicaca/fuwari">源码</a>
+        </div>
+    </div>
+    </div>
 </div>
