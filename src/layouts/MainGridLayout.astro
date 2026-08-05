@@ -22,6 +22,7 @@ interface Props {
 	lang?: string;
 	setOGTypeArticle?: boolean;
 	headings?: MarkdownHeading[];
+	showFooter?: boolean;
 }
 
 const {
@@ -31,6 +32,7 @@ const {
 	lang,
 	setOGTypeArticle,
 	headings = [],
+	showFooter = true,
 } = Astro.props;
 const hasBannerCredit =
 	siteConfig.banner.enable && siteConfig.banner.credit.enable;
@@ -87,15 +89,15 @@ const mainPanelTop = siteConfig.banner.enable
                     <!-- the overflow-hidden here prevent long text break the layout-->
                     <h1 class="sr-only">{title ?? siteConfig.title}</h1>
                     <slot></slot>
-                    <div class="footer col-span-2 onload-animation hidden lg:block">
+                    {showFooter && <div class="footer col-span-2 onload-animation hidden lg:block">
                         <Footer></Footer>
-                    </div>
+                    </div>}
                 </div>
             </main>
 
-            <div class="footer col-span-2 onload-animation block lg:hidden">
+            {showFooter && <div class="footer col-span-2 onload-animation block lg:hidden">
                 <Footer></Footer>
-            </div>
+            </div>}
         </div>
 
         <BackToTop></BackToTop>
